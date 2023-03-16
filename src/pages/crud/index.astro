@@ -1,0 +1,44 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import LibCrud from '../../lib/LibCrud';
+
+export type Post = {
+  id: number;
+  name: string;
+//  content: string;
+};
+//
+const items: Post[]  = await LibCrud.getList();
+console.log(items);
+---
+
+<Layout title="Welcome to Astro.">
+	<main class="container">
+		<h1>Crud</h1>
+		<p class="instructions">CRUD, sample
+		</p>
+		<a class="btn btn-primary" href={`/crud/create`}>Create</a>
+		<hr />
+		<ul>
+		  {
+			items.map((item) => (
+			  <li>
+				<a href={`/crud/show/${item.id}`}>{item.name}</a>
+				<a href={`/crud/edit/${item.id}`}>[edit]</a>
+				<hr />
+			  </li>
+			))
+		  }
+		</ul>		
+	
+	</main>
+</Layout>
+<!-- -->
+<style>
+</style>
+<!-- -->
+<script src="./Crud.ts"></script>
+<!--
+<a class="btn btn-outline-primary" href={`/`}>Top</a>
+<hr />		
+-->

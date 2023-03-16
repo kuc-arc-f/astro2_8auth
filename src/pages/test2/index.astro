@@ -1,0 +1,24 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import LibConfig from '../../lib/LibConfig';
+
+const key = LibConfig.COOKIE_KEY_AUTH;
+const cookie = Astro.request.headers.get('cookie');
+console.log(key);
+if(Astro.request.url !== '/login')
+{
+console.log(Astro.request.url);
+console.log(Astro.cookies.has(key));
+	if (Astro.cookies.has(key) === false) {
+		return Astro.redirect('/login');
+	}
+}
+---
+
+<Layout title="Welcome to Astro.">
+    <main class="container">
+        <h1>test2</h1>
+    </main>
+</Layout>
+
+
