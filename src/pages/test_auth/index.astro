@@ -1,0 +1,41 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import HttpCommon from '../../lib/HttpCommon';
+import LibConfig from '../../lib/LibConfig';
+
+const key = LibConfig.COOKIE_KEY_AUTH;
+console.log(key);
+if (Astro.cookies.has(key) === false) {
+    console.log("key is, false, redirect Start");
+    console.log("key is, false");
+    return Astro.redirect('/login');
+} else {
+    console.log("key is, OK");
+}
+
+---
+
+<Layout title="Welcome to Astro.">
+    <div class="container">
+        <h3>testAuth2</h3>
+        <hr />
+        <button id="btn_test" class="btn btn-primary">Test
+        </button>		
+
+        <hr />
+        <button id="btn_put" class="btn btn-primary">Put
+        </button>		
+        <hr />
+        <button id="btn_get" class="btn btn-primary">Get
+        </button>		
+        <hr />
+        <button id="btn_delete" class="btn btn-primary">Delete
+        </button>		
+        <hr />		
+    </div>
+</Layout>
+
+<style>
+</style>
+<!-- -->
+<script src="./Test.ts"></script>

@@ -6,19 +6,21 @@ export interface Props {
 }
 
 const { title } = Astro.props;
-//
+
+/*
 const key = LibConfig.COOKIE_KEY_AUTH;
 console.log(key);
 if(Astro.request.url !== '/login')
 {
 	console.log(Astro.request.url);
 	if (Astro.cookies.has(key)) {
-//		return Astro.redirect('/login');
+		return Astro.redirect('/login');
 	}
 }
 
 const auth = Astro.cookies.get(key);
 console.log("auth=", auth);
+*/
 ---
 
 <!DOCTYPE html>
@@ -42,12 +44,16 @@ console.log("auth=", auth);
 			<a href={`/login`}>[ Login ]</a>
 			&nbsp;<a href={`/test`}>[ Test ]</a>
 			&nbsp;<a href={`/test2`}>[ Test2 ]</a>
+			&nbsp;<a href={`/test3`}>[ Test3 ]</a>
+			&nbsp;<a href={`/test_auth4`}>[ TestAuth ]</a>
 			<hr />
 		</div>
+		<!--
 		[debug]<br />
 		<p>Received a {Astro.request.method} request to "{Astro.request.url}".</p>
 		<h1>The current URL pathname is: {Astro.url.pathname}</h1>
 		<hr />
+		-->
 		<slot />
 	</body>
 </html>

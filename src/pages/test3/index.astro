@@ -1,0 +1,14 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import LibConfig from '../../lib/LibConfig';
+
+//const key = LibConfig.COOKIE_KEY_MESSAGE;
+const key = LibConfig.COOKIE_KEY_ERROR_OBJECT;
+console.log("key=", key);
+//Astro.cookies.set(key, {message: 'hoge'}, {maxAge: 604800});
+Astro.cookies.set('test_counter', String(9));
+return Astro.redirect('/errors');
+---
+
+
+

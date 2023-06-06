@@ -1,0 +1,36 @@
+---
+import Layout from '../layouts/Layout.astro';
+import LibConfig from '../lib/LibConfig';
+
+const key = LibConfig.COOKIE_KEY_ERROR_OBJECT;
+//  COOKIE_KEY_HTTP_CODE: "http_code",
+//COOKIE_KEY_MESSAGE: "message",
+//Astro.cookies.set(key, 'hoge');
+let message = "";
+console.log(Astro.cookies.has(key));
+console.log(Astro.request.headers.get('cookie'));
+if (Astro.cookies.has(key) !== false) {
+    const obj = Astro.cookies.get(key);
+console.log(obj);
+    //return Astro.redirect('/login');
+}
+
+/*
+const cookie = Astro.request.headers.get('cookie');
+console.log(key);
+if(Astro.request.url !== '/login')
+{
+console.log(Astro.request.url);
+}
+*/
+---
+
+<Layout title="Welcome to Astro.">
+    <main class="container">
+        <h1>errors</h1>
+        <hr />
+        <p>message: {message}</p>
+    </main>
+</Layout>
+
+
